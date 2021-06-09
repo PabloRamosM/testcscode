@@ -29,6 +29,8 @@ namespace graph.Controllers
         [HttpPost]
         public IActionResult Post()
         {
+
+            GraphController.graphs.Add(new Graph());
             GraphController.graphs.Add(new Graph());
             return Ok();
         }
