@@ -26,13 +26,47 @@ namespace graph.Controllers
         {
             return GraphController.graphs;
         }
+        [HttpGet("{id}")]
+        public IActionResult GetGraph(int id)
+        {
+            foreach (Graph g in graphs) {
+                if (g.Id == id) {
+                    return Ok(g);
+                }
+            }
+            return NotFound();
+        }
         [HttpPost]
         public IActionResult Post()
         {
-
-            GraphController.graphs.Add(new Graph());
             GraphController.graphs.Add(new Graph());
             return Ok();
+        }
+        //Elimina todos los grafos
+        [HttpDelete]
+        public IActionResult DeleteAllGraphs()
+        {
+            if(graphs==null)
+            {
+                return NotFound();
+            }else
+            {
+                graphs.Clear();
+                return Ok();
+            }  
+        }
+        //Elimina el grafo con respecto al Id
+        [HttpDelete("{id}")]
+        public IActionResult DeleteIdGraph(int id)
+        {
+             if(graphs==null)
+            {
+                return NotFound();
+            }else
+            {
+                graphs.Remove(graphs[id]);
+                return Ok();
+            }  
         }
     }
 }
