@@ -7,7 +7,7 @@ namespace graph.Entities
         private static int currentId=0;
         private int id;
         private List<Node> nodes;
-        
+        public Graph graph{get; set;}
         public Graph(){
             this.id= currentId++;
         }
@@ -25,4 +25,5 @@ namespace graph.Entities
 
         public List<Node> Nodes { get => nodes;}
     }
+
 }

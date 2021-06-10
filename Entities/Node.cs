@@ -7,7 +7,7 @@ namespace graph.Entities
         private static int currentId=0;
         private int id;
         private String value;
-        
+        public Graph graph {get; set;}
         public Node(){
             this.id= Node.currentId++;
         }

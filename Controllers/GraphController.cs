@@ -9,7 +9,7 @@ using graph.Entities;
 namespace graph.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class GraphController : ControllerBase
     {
         private readonly ILogger<GraphController> _logger;
