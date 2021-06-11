@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using graph.Entities;
-
+using Microsoft.EntityFrameworkCore;
 namespace graph.Controllers
 {
     [ApiController]
@@ -14,7 +14,7 @@ namespace graph.Controllers
     {
         private readonly ILogger<GraphController> _logger;
        
-        private static List<Graph> graphs= new List<Graph>();
+        public static List<Graph> graphs= new List<Graph>();
 
         public GraphController(ILogger<GraphController> logger)
         {
