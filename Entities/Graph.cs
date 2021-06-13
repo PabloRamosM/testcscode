@@ -5,6 +5,7 @@ namespace graph.Entities
     public class Graph
     {
         private static int currentId=0;
+        
         public int id;
         private List<Node> nodes;
         public Graph graph{get; set;}

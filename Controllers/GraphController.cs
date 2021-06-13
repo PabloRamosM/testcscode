@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using graph.Entities;
 using Microsoft.EntityFrameworkCore;
+using graph.Database;
+
 namespace graph.Controllers
 {
     [ApiController]
@@ -13,45 +15,42 @@ namespace graph.Controllers
     public class GraphController : ControllerBase
     {
         private readonly ILogger<GraphController> _logger;
-       
-        public static List<Graph> graphs= new List<Graph>();
-
         public GraphController(ILogger<GraphController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet]
-        public List<Graph> Get()
+        public List<Graph> GetAllGraphs()
         {
-            return GraphController.graphs;
+            return GraphDB.Instance.GetGraphs;
         }
         [HttpGet("{id}")]
         public IActionResult GetGraph(int id)
         {
-            foreach (Graph g in graphs) {
-                if (g.Id == id) {
-                    return Ok(g);
-                }
+             var getGraphId = GraphDB.Instance.GetGraph(id);
+             if (getGraphId == null){
+                return NotFound();
             }
-            return NotFound();
+            return Ok(getGraphId);
         }
         [HttpPost]
         public IActionResult Post()
         {
-            GraphController.graphs.Add(new Graph());
+            GraphDB.Instance.addGraph();
             return Ok();
         }
         //Elimina todos los grafos
         [HttpDelete]
         public IActionResult DeleteAllGraphs()
         {
-            if(graphs==null)
+             var ListOfGraphs= GraphDB.Instance.GetGraphs;
+            if(ListOfGraphs==null)
             {
                 return NotFound();
             }else
             {
-                graphs.Clear();
+                ListOfGraphs.Clear();
                 return Ok();
             }  
         }
@@ -59,14 +58,16 @@ namespace graph.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteIdGraph(int id)
         {
-             if(graphs==null)
-            {
+            var getGraphId = GraphDB.Instance.GetGraph(id);
+            var ListOfGraphs= GraphDB.Instance.GetGraphs;
+             if (ListOfGraphs == null){
                 return NotFound();
             }else
             {
-                graphs.Remove(graphs[id]);
+                ListOfGraphs.Remove(getGraphId);
                 return Ok();
-            }  
+            }
+            
         }
     }
 }

@@ -34,6 +34,7 @@
       "graph/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.7",
+          "Microsoft.EntityFrameworkCore.InMemory": "5.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.7",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.7",
           "Swashbuckle.AspNetCore": "5.6.3",
@@ -460,6 +461,20 @@
             "assemblyVersion": "5.0.7.0",
             "fileVersion": "5.0.721.26102"
           }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.InMemory/5.0.7": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.7"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "5.0.7.0",
+            "fileVersion": "5.0.721.26102"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Relational/5.0.7": {
@@ -3122,6 +3137,13 @@
       "sha512": "sha512-r/0Jkp7HCzWSXdC79jwK4JKNw16s88E23U46rCu+I1zYYXg+w4TR/S9zAkQNHiNkaCFyGUod/b5ZoQCI5eqJ2A==",
       "path": "microsoft.entityframeworkcore.design/5.0.7",
       "hashPath": "microsoft.entityframeworkcore.design.5.0.7.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/5.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nmTyS8TDy9ED2RI5T9kuOrjO3RX0BHCzlTnMto8FjJ+HvCDy8riXYEXRTomm3Cd4MYFybiLjUa6MylACWswt7A==",
+      "path": "microsoft.entityframeworkcore.inmemory/5.0.7",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.5.0.7.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/5.0.7": {
       "type": "package",
