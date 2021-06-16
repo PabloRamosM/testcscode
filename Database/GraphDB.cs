@@ -6,6 +6,9 @@ namespace graph.Database
 {
     public class GraphDB
     {
+        /* 
+        El singleton que hizo el profe para asi solo tener una sola referencia de la lista que contiene todos los grafos
+         */
         private static GraphDB instance;
         private static readonly object padlock = new object();
         private List<Graph> graphs = new List<Graph>();
@@ -30,6 +33,7 @@ namespace graph.Database
             }
             return null;
         }
+        //El singleton
         public static GraphDB Instance
         {
             get

@@ -44,7 +44,7 @@ namespace graph.Controllers
         [HttpDelete]
         public IActionResult DeleteAllGraphs()
         {
-             var ListOfGraphs= GraphDB.Instance.GetGraphs;
+            var ListOfGraphs= GraphDB.Instance.GetGraphs;
             if(ListOfGraphs==null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace graph.Controllers
                 return Ok();
             }  
         }
-        //Elimina el grafo con respecto al Id
+        //Elimina el grafo con respecto al Id 
         [HttpDelete("{id}")]
         public IActionResult DeleteIdGraph(int id)
         {
